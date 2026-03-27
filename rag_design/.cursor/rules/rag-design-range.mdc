@@ -1,0 +1,62 @@
+---
+description: EvoPalantir RAG / corrective memory and self-evolving Skill design (gpr). Read whole repo; treat knowledge/ as source of truth; no unsupported claims. Works when workspace root is repo root or rag_design only.
+---
+
+# EvoPalantir · `rag_design` rules (gpr)
+
+## Scope
+
+- **Read scope:** You may and should read **any** file in the workspace for context (including `EvoSim`, `MemOS`, `EPFrameWork`, `knowledge/`, etc.). If the workspace is **only** `rag_design/`, use `../` to reach the rest of the repo (see **Path conventions**).
+- **Task and deliverables:** Design work, decisions, and written outputs default to **`rag_design/`** and other paths tied to RAG / memory / Skills. Cross-cutting claims must **cite** sources (see **Authoritative sources**).
+- **Out of scope:** Subsystems not described here or in `knowledge/`, unless the user explicitly expands scope.
+
+## Path conventions (two workspace roots)
+
+**Repo root** means the cloned `EvoPalantir` tree (example on Windows: `E:/EvoPalantir`).
+
+| Resource | Workspace = repo root | Workspace = `rag_design/` only |
+|----------|------------------------|--------------------------------|
+| Knowledge base `knowledge/` | `knowledge/` | `../knowledge/` |
+| This rules directory | `rag_design/.cursor/rules/` | `.cursor/rules/` |
+| RAG design docs (this package) | `rag_design/docs/` | `docs/` |
+| Anchor: architecture plan (original) | `knowledge/EvoPalantir 架构与集成实现计划(原版).md` | `../knowledge/EvoPalantir 架构与集成实现计划(原版).md` |
+| Anchor: reality-aligned simulation plan | `knowledge/基于 EvoPalantir 的现实对齐模拟方案.md` | `../knowledge/基于 EvoPalantir 的现实对齐模拟方案.md` |
+| Anchor: self-evolving agent / RAG reference | `rag_design/docs/自进化Agent：经验写回的运行时记忆闭环机制/自进化Agent：经验写回的运行时记忆闭环机制.md` | `docs/自进化Agent：经验写回的运行时记忆闭环机制/自进化Agent：经验写回的运行时记忆闭环机制.md` |
+
+When citing paths in answers or docs, prefer paths **relative to the current workspace root**; add “(relative to repo root: …)” if it helps.
+
+## Authoritative sources (read before asserting)
+
+- **Overall architecture:** `knowledge/EvoPalantir 架构与集成实现计划(原版).md` (adjust prefix per table above).
+- **RAG / self-evolving memory loop (design reference):** the `.md` file under `rag_design/docs/自进化Agent：经验写回的运行时记忆闭环机制/` (adjust prefix per table above).
+- **Reality-aligned rollout / simulation:** `knowledge/基于 EvoPalantir 的现实对齐模拟方案.md` (adjust prefix per table above).
+- **More:** other relevant `.md` files under `knowledge/`.
+
+**Hard rules:**
+
+- Boundaries, loops, terminology, and integration assumptions **must follow** `knowledge/` and the anchor docs.
+- If unsure: **read** those files or the relevant `knowledge/` sections **before** answering. Do **not** invent APIs, paper claims, product capabilities, or “repo X surely supports Y.”
+- If the docs are silent, say **“not defined in repo docs”** and list questions or research gaps—do **not** guess.
+
+## Reference projects (patterns only; verify against upstream)
+
+- **MemOS:** [MemTensor/MemOS](https://github.com/MemTensor/MemOS) — memory OS for agents; unified storage/retrieval and skill memory (verify APIs in official docs/code).
+- **OpenViking:** [volcengine/OpenViking](https://github.com/volcengine/OpenViking) — open **context database** for agents; filesystem-style organization of memory, resources, skills; layered context and evolution (not part of this repo). Do **not** fabricate URI schemes, default tiers, or APIs—check docs or source.
+
+## gpr ownership
+
+- **Corrective memory module:** alignment with observations, snapshots, and rollouts (as bounded by `knowledge/` and the master plans).
+- **Self-evolving Skill implementation:** design, interfaces, and rollout for experience write-back, runtime memory loops, and evolvable Skills. You may compare patterns to MemOS and OpenViking; do **not** invent their concrete APIs.
+
+## Current phase (keep updated)
+
+> **【UPDATE】** Replace this block with the active sprint; keep a line `Last updated: YYYY-MM-DD`.
+
+- **Current focus (example):** Research experience store and memory-loop literature/repos; write notes under `rag_design/docs/` with open questions.
+- **Next step (optional):** (fill in)
+
+## Working style
+
+- Prefer **DRY / YAGNI**: link or short summaries for overlap with master docs—do not paste full `knowledge/` files into `rag_design/`.
+- For multi-step implementation, plans may live at `docs/superpowers/plans/YYYY-MM-DD-<feature>.md` when that path exists under the workspace or repo root.
+- Ask the user directly when requirements are unclear; do not fill gaps with fiction.

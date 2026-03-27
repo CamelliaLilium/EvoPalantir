@@ -1,0 +1,37 @@
+---
+description: Readers and collaboration norms for 需求说明 vs 调研与设计文档 (calibration memory / rag_design).
+globs: rag_design/**/*.md
+alwaysApply: false
+---
+
+# rag_design 文档读者与协作（校正记忆 / 经验库）
+
+## 阶段与写法重心
+
+- **现阶段：** 以 **研究 / 架构对齐、评审可读** 为主（对应对话中的选项 B）。
+- **后续落地：** 转为 **实现与模块边界可执行**（选项 A）；改版文档时更新本节或 frontmatter 标注阶段。
+
+## 《需求说明》首要读者
+
+- **gpr：** 负责校正记忆模块 / 相关 Skill 实现；需求需写到 **可确认、可验收**。
+- **sfc：** 代码基础较弱，**文书与整理能力强、学习意愿强**。写作目的包括：便于 gpr **拆解任务与引导**、分配她能 **快速上手** 的条目（调研摘录、对照表、文档结构、与 `knowledge/` 的一致性检查），并 **促进后续与 gpr 协作**（接口说明、术语表、变更摘要）。
+
+代理协助 gpr/sfc 时：优先给出 **明确分工建议** 与 **入门级子任务**，避免默认双方代码能力相同。
+
+## 《调研与设计文档》首要读者（团队 7 人及角色）
+
+文档需让 **跨角色** 读者都能定位自己关心的部分（摘要 + 目录 + 可选附录深度）。
+
+| 成员 | 角色/背景（便于对症取材） |
+|------|---------------------------|
+| **zth** | [knowledge/AgentOS.md](knowledge/AgentOS.md) 相关设计者 |
+| **ln, rcy** | [knowledge/EvoSim 舆情生态系统仿真/](knowledge/EvoSim%20舆情生态系统仿真/) 方向高水平成员 |
+| **zxy** | 代码能力强 |
+| **myd** | Agent 理解深、学习快 |
+| **kb** | 总负责人；AI 认知见 [knowledge/kb的AI认知.md](knowledge/kb的AI认知.md)；[knowledge/EvoPalantir 架构与集成实现计划(原版).md](knowledge/EvoPalantir%20架构与集成实现计划(原版).md) 的设计者 |
+
+**kb 相关表述**须与 **架构计划** 及 **knowledge/** 权威叙述一致，避免无来源扩展。
+
+## 与 `rag-design-range.mdc` 的关系
+
+边界、引用来源、禁止臆造 API 等 **仍以** [rag-design-range.mdc](rag-design-range.mdc)（同目录）**为准**；本规则只补充 **读者与协作**，不覆盖技术断言规则。
