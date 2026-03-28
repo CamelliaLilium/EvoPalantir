@@ -1,0 +1,37 @@
+# --- OS ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Windows: accidental file named reserved device (e.g. mistyped redirects)
+nul
+
+# --- Secrets & local env ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+**/.ruff_cache/
+
+# --- Node / JS ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Build / misc ---
+*.log
+dist/
+build/
+.cache/
