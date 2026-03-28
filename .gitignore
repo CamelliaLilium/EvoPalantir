@@ -35,3 +35,11 @@ pnpm-debug.log*
 dist/
 build/
 .cache/
+
+# --- Projects ---
+EPFrameWork1/
+EvoPalantir-MemSkill/
+EvoPalantir-skills/
+EvoSim/
+MemOS/
+prompt.txt
