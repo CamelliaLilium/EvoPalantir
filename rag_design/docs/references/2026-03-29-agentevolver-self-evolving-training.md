@@ -186,8 +186,8 @@ flowchart TB
 | 维度 | 外部方案 | 本仓库（出处） |
 |------|----------|----------------|
 | 目标 | 训练期 **策略梯度**（GRPO + 可选 ADCA），优化 **对话策略** | CME：**不** 训练主模型；消费校正事件（[宪章](../plans/2026-03-28-调研与设计-校正记忆与经验库.md) §1.1） |
-| 经验形态 | ReMe 向量 workspace、自然语言经验条、**注入 prompt** | `CaseRecord` + 结构化索引；下游 **`RetrievalPack` 契约**（宪章 §2.1、§1.3） |
-| 归因 / 反思 | **逐步 GOOD/BAD** → token 优势 → **更新策略** | **大偏差 Reflexion**、案例级 `reflection_text`；**无** token 级 GRPO（宪章 §1.3 CaseIngest） |
+| 经验形态 | ReMe 向量 workspace、自然语言经验条、**注入 prompt** | `CaseRecord` + 结构化索引；下游 **`RetrievalPack` 契约**（宪章 §2.1、§1.4） |
+| 归因 / 反思 | **逐步 GOOD/BAD** → token 优势 → **更新策略** | **大偏差 Reflexion**、案例级 `reflection_text`；**无** token 级 GRPO（宪章 §1.4 CaseIngest） |
 | 环境 | AppWorld / BFCL 等 **HTTP EnvService** | `simulation_runtime` + `snapshot_service`（知识库 §4.12） |
 | 治理与时序 | 训练步上 **同步** 优化；经验摘要 **后台线程**（文档） | **Governance 异步、不阻塞 tick**（宪章 §1.2） |
 | 可移植结论 | 基准与论文数字 **不** 映射到校正业务 KPI | 仅方法论对照，**不**  import 其 leaderboard 为需求 |

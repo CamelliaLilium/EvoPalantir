@@ -187,8 +187,8 @@ README 在 **「Experimental results」** 下给出 **LoCoMo**、**HaluMem** 排
 
 | 维度 | 外部方案 | 本仓库（出处） |
 |------|----------|----------------|
-| 生命周期 | 论文：获取–复用–精炼；含 **效用删除** 式 (1) | Governance：**异步** 去重、合并、效用、剪枝、rule book（宪章 §1.2–1.3） |
-| 产品分裂 | **ReMeLight 对话压缩** vs **`reme2`+benchmark 经验池** vs **向量 CRUD `ReMe`** | CME：**单一 `CaseRecord` 契约** + 可选索引（宪章 §1.3） |
+| 生命周期 | 论文：获取–复用–精炼；含 **效用删除** 式 (1) | Governance：**异步** 去重、合并、效用、剪枝、rule book（宪章 §1.2、§1.4） |
+| 产品分裂 | **ReMeLight 对话压缩** vs **`reme2`+benchmark 经验池** vs **向量 CRUD `ReMe`** | CME：**单一 `CaseRecord` 契约** + 可选索引（宪章 §1.4） |
 | 复用形态 | 论文：**rerank + rewriting**；ReMeLight：**检索片段注入** | `RetrievalPack` **结构化交付**（宪章 §2.1） |
 | 时序类比（非等价） | Agent **同步 `pre_reasoning_hook`** 在推理前压缩 | CME **治理异步、不阻塞 tick**（宪章 §1.2）——仅 **对照问题意识** |
 | 绑定栈 | AgentScope / CoPaw / `reme2` CLI | EvoPalantir **不假设** 上述栈为内置依赖 |
