@@ -1,0 +1,16 @@
+---
+description: rag_design/docs/references 调研强制：基线 commit、一手检索、从模板复制
+globs: rag_design/docs/references/**/*.md
+alwaysApply: false
+---
+
+# references 目录写作强制项
+
+编辑或新建本目录下 Markdown 时 **必须** 遵守：
+
+1. **有 Git 的原项目** → 文首元数据含 **完整 40 位基线 commit SHA**（或 tag + 对应 SHA）。  
+2. **无 Git** → 写明「无仓库」+ 文档/论文 **URL 与版本日期**。  
+3. 含 **「检索与阅读记录」**（动笔前读过的一手入口，1～3 条）。  
+4. 新文从 [模板.md](../docs/references/模板.md) 复制；说明见 [README.md](../docs/references/README.md)。
+
+全文结构与事实/启示分离见 [rag-design-principles.mdc](rag-design-principles.mdc) §8 与「外部调研与借鉴写法」。
