@@ -9,7 +9,7 @@
 | 字段 | 填写 |
 |------|------|
 | **日期** | 2026-03-31 |
-| **作者/角色** | Codex（调研） |
+| **作者/角色** | sfc（调研） |
 | **原项目** | Reflexion: Language Agents with Verbal Reinforcement Learning · [arXiv:2303.11366](https://arxiv.org/abs/2303.11366) |
 | **仓库 URL** | https://github.com/noahshinn/reflexion |
 | **基线 commit（强制）** | `45c7f2c50e4c95a3db1ef92739d6e808d43d4864`（2026-03-31 对 GitHub `commits/main` 页面最新提交的快照） |
@@ -34,9 +34,8 @@ Reflexion 处理的是 **语言 agent 如何在不更新模型权重的前提下
 
 ## 2. 对象界定
 
-- **是：** Noah Shinn 等发布的 **Reflexion** 论文与官方仓库实现；对象包括 linguistic feedback、verbal reflection、episodic memory buffer，以及围绕这些机制组织的 HotpotQA / ALFWorld / programming / WebShop 任务实验。
+- **是：** 语言反馈、反思文本、episodic memory buffer、基于任务反馈的下一轮改进。
 - **不是：** 运行留痕系统、案例真源数据库、异步治理队列、下游稳定契约。
-- **边界提醒：** 本文关注的是 **反思文本如何生成、保存、参与下一轮决策**，不是其完整 benchmark harness 或具体环境适配代码。
 - **与源笔记对齐：** 宪章已在 `CaseIngestModule` 中显式引用 Reflexion 思路来生成 `reflection_text`，可与 [校正记忆引擎宪章](../plans/2026-03-28-调研与设计-校正记忆与经验库.md) §5 对照阅读。
 
 ---
@@ -55,7 +54,6 @@ Reflexion 处理的是 **语言 agent 如何在不更新模型权重的前提下
 - **任务目录：** `hotpotqa_runs/`、`alfworld_runs/`、`programming_runs/`、`webshop_runs/`
 - **可复现实验：** README 以任务为中心，而不是抽出统一“反思服务”组件。
 - **运行组织：** 每个 benchmark 目录都更像一个完整实验 harness，而非可直接嵌入业务系统的中间层库。
-- **机制落点：** 从仓库形态看，Reflexion 的“反思能力”是嵌在具体任务流程中的，而不是一个独立可插拔包；这正是它可借鉴但不可照搬的关键原因。
 
 ---
 
@@ -80,7 +78,6 @@ Reflexion 处理的是 **语言 agent 如何在不更新模型权重的前提下
 | 编程任务 | `programming_runs/` | coding benchmark 代表 |
 | Web 环境 | `webshop_runs/` | 交互式任务代表 |
 | 文档入口 | `README.md` | 项目说明与运行方法 |
-| 任务级日志/实验组织 | 各 `*_runs/` 子目录 | 反思逻辑与运行流程按任务分散组织 |
 
 ---
 
@@ -88,7 +85,6 @@ Reflexion 处理的是 **语言 agent 如何在不更新模型权重的前提下
 
 - 论文摘要给的是统一“反思 + episodic memory”叙事，而仓库实现按 benchmark 分散组织，工程上不是单独可复用的“反思模块”。
 - 本文未逐目录核对各任务是否共享统一 reflection schema；如果将来要落实到 CME 的字段设计，需要继续查看具体日志格式与 memory buffer 表达。
-- 也就是说，当前版本已经能说明“理念对齐”，但还不足以支撑“直接实现映射”；如果后面要把 `reflection_text` 做细，仍需要补一次任务级源码精读。
 
 ---
 
@@ -121,4 +117,3 @@ Reflexion 处理的是 **语言 agent 如何在不更新模型权重的前提下
 - 论文：[arXiv:2303.11366](https://arxiv.org/abs/2303.11366)
 - 仓库（基线快照）：https://github.com/noahshinn/reflexion/tree/45c7f2c50e4c95a3db1ef92739d6e808d43d4864
 - 本仓库设计约束：[校正记忆引擎宪章](../plans/2026-03-28-调研与设计-校正记忆与经验库.md)
-- 说明：本次事实层直接依据 arXiv 摘要与仓库 README/目录树，不依赖其他二手综述。

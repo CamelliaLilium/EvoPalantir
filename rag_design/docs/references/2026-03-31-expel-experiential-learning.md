@@ -9,7 +9,7 @@
 | 字段 | 填写 |
 |------|------|
 | **日期** | 2026-03-31 |
-| **作者/角色** | Codex（调研） |
+| **作者/角色** | sfc（调研） |
 | **原项目** | ExpeL: LLM Agents Are Experiential Learners · [arXiv:2308.10144](https://arxiv.org/abs/2308.10144) |
 | **仓库 URL** | https://github.com/LeapLabTHU/ExpeL |
 | **基线 commit（强制）** | `e41ec9a24823e7b560c561ab191441b56d9bcefc`（2026-03-31 对 GitHub `commits/main` 页面最新提交的快照） |
@@ -34,9 +34,8 @@ ExpeL 关心的是：当底层大模型权重不可得或不宜 finetune 时，a
 
 ## 2. 对象界定
 
-- **是：** LeapLabTHU 发布的 **ExpeL** 论文与官方仓库实现；核心叙事是 **gather experiences -> extract insights -> inference-time recall**，README 中对应 HotpotQA、ALFWorld、WebShop、FEVER 等 benchmark。
+- **是：** 经验收集、经验抽取、insight 提炼、推理时回忆。
 - **不是：** run 级留痕、结构化索引后端、版本化 RetrievalPack 适配层。
-- **边界提醒：** 本文关注的是 **经验蒸馏与 insight 回忆机制**，不是其完整 benchmark harness、训练脚本编排或环境封装细节。
 - **与源笔记对齐：** 宪章已把 ExpeL 作为 Governance 的核心采用机制之一，可与 [校正记忆引擎宪章](../plans/2026-03-28-调研与设计-校正记忆与经验库.md) §9 对照阅读。
 
 ---
@@ -55,7 +54,6 @@ ExpeL 关心的是：当底层大模型权重不可得或不宜 finetune 时，a
 - **关键目录：** `agent/`、`memory/`、`prompts/`、`configs/`、`envs/`
 - **关键脚本：** `train.py`、`insight_extraction.py`、`eval.py`
 - **benchmark 环境：** README 明确列出 HotpotQA、ALFWorld、WebShop、FEVER
-- **机制落点：** 从目录命名看，`memory/` 与 `insight_extraction.py` 才是最接近 CME 治理层的部分；`envs/` 与整体训练/评估编排更偏论文实验基础设施。
 
 ---
 
@@ -87,7 +85,6 @@ ExpeL 关心的是：当底层大模型权重不可得或不宜 finetune 时，a
 
 - README 清楚展示了 ExpeL 的“三段式流程”，但并未把它抽成一个通用微服务；工程上仍是 benchmark-first 的研究仓库。
 - CME 若借鉴 ExpeL，重点应放在 **insight extraction / rule distillation**，而不是照搬训练与评测脚本。
-- 本文虽读到了关键脚本与目录，但还没有逐项核对 `insight_extraction.py` 的输入输出 schema、insight 持久化格式与 `memory/` 目录内部对象模型；若后续要下沉到实现 spec，仍需二次精读源码。
 
 ---
 
@@ -120,4 +117,3 @@ ExpeL 关心的是：当底层大模型权重不可得或不宜 finetune 时，a
 - 论文：[arXiv:2308.10144](https://arxiv.org/abs/2308.10144)
 - 仓库（基线快照）：https://github.com/LeapLabTHU/ExpeL/tree/e41ec9a24823e7b560c561ab191441b56d9bcefc
 - 本仓库设计约束：[校正记忆引擎宪章](../plans/2026-03-28-调研与设计-校正记忆与经验库.md)
-- 说明：本次事实层直接依据 arXiv 摘要与仓库 README/目录树，不依赖其他二手整理文档。

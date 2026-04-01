@@ -9,7 +9,7 @@
 | 字段 | 填写 |
 |------|------|
 | **日期** | 2026-03-31 |
-| **作者/角色** | Codex（调研） |
+| **作者/角色** | sfc（调研） |
 | **原项目** | MLflow Tracking · [官方文档](https://mlflow.org/docs/latest/ml/tracking/) |
 | **仓库 URL** | https://github.com/mlflow/mlflow |
 | **基线 commit（强制）** | `005b959cacda05d1423356cfcbd9ebeda8ff96a7`（2026-03-31 对 GitHub `commits/master` 页面最新提交的快照；非 release tag） |
